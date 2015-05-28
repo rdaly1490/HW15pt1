@@ -8,6 +8,9 @@
 
 function max(a, b){
     "use strict";
+    if (a === "" ||  b === "") {
+        throw "Invalid Input";
+    }
     if (a > b) {
         return a;
     }
@@ -21,6 +24,9 @@ function max(a, b){
 // ---------------------
 
 function maxOfThree(a,b,c){
+    if (a === undefined || b === undefined || c === undefined) {
+        throw "Invalid Input";
+    }
     "use strict";
     if (a>b && a>c) {
         return a;
@@ -38,6 +44,9 @@ function maxOfThree(a,b,c){
 // ---------------------
 
 function isVowel(a){
+    if (typeof a !== "string") {
+        throw "Invalid Input";
+    }
     "use strict";
     var vowels = ["a","e","i","o","u","y"];
     var match = [];
@@ -59,14 +68,13 @@ function isVowel(a){
 // ---------------------
 
 function rovarspraket(phrase){
-    "use strict";
+    // "use strict";
     // var allowed = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","z"];
-    // var vowels = ["a","e","i","o","u","y"];
-    // var newPhrase = "";
-    // var emptyArr = [];
+    // var isAllowed = false
+    // // var vowels = ["a","e","i","o","u","y"];
+    // // var newPhrase = "";
+    // // var emptyArr = [];
 
-    
-    
     // for (var i=0; i<phrase.length; i++) {
     //     for (var j=0; j<allowed.length; j++) {
     //         if (phrase.charAt(i) === allowed[j]) {
@@ -102,14 +110,22 @@ function sum(array){
 // console.log(sum([1,2,3,4]));
 
 function multiply(array){
+    if (!Array.isArray(array)) {
+        throw "Invalid Input";
+    }
     "use strict";
     var total = 1;
     for (var i=0; i<array.length; i++) {
+        if (array[i] === 0) {
+            return 0;
+        }
+        else {
         total = total * array[i];
+        }
     }
     return total;
 }
-// console.log(multiply([1,2,3,4]));
+// console.log(multiply([5,5,2]));
 
 // ---------------------
 // Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
@@ -166,6 +182,9 @@ console.log(filterLongWords(["green", "red", "blue"], 4));
 // ---------------------
 
 function charFreq(string){
+    if (typeof string !== "string") {
+        throw "Invalid Input";
+    }
     "use strict";
     var letterCount = {};
 
