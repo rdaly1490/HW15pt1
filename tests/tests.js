@@ -45,6 +45,24 @@ describe("isVowel", function() {
 	});
 });
 
+describe("rovarspraket", function() {
+	it("should exist", function() {
+		expect(rovarspraket).to.not.be.undefined;
+	});
+	it("should return eight if I pass in two integers, 8 & 7", function() {
+		expect(rovarspraket("hello")).to.equal("hohelollolo");
+	});
+	it("should return zero if I pass in zero and one", function() {
+	expect(rovarspraket("oooh")).to.equal("ooohoh");
+	});
+	it("should throw an error is input is not string", function() {
+	expect (function() { rovarspraket(5);}).to.throw("Invalid Input");
+	});
+	it("should throw an error is input is not string", function() {
+	expect (function() { rovarspraket("");}).to.throw("Invalid Input");
+	});
+});
+
 describe("sum", function() {
 	it("should exist", function() {
 		expect(sum).to.not.be.undefined;
@@ -92,10 +110,10 @@ describe("filterLongWords", function() {
 		expect(filterLongWords).to.not.be.undefined;
 	});
 	it("should return eight if I pass in two integers, 8 & 7", function() {
-		expect(filterLongWords(["green","red", 4])).to.deep.equal(["green"]);
+		expect(filterLongWords(["green","red"], 4)).to.deep.equal(["green"]);
 	});
 	it("should return zero if I pass in zero and one", function() {
-	expect(filterLongWords(["red", "blue", "green", 3])).to.eql(["blue", "green"]);
+	expect(filterLongWords(["red", "blue", "green"], 3)).to.eql(["blue", "green"]);
 	});
 });
 

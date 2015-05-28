@@ -68,32 +68,23 @@ function isVowel(a){
 // ---------------------
 
 function rovarspraket(phrase){
-    // "use strict";
-    // var allowed = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","z"];
-    // var isAllowed = false
-    // // var vowels = ["a","e","i","o","u","y"];
-    // // var newPhrase = "";
-    // // var emptyArr = [];
-
-    // for (var i=0; i<phrase.length; i++) {
-    //     for (var j=0; j<allowed.length; j++) {
-    //         if (phrase.charAt(i) === allowed[j]) {
-    //             newPhrase = newPhrase + phrase.charAt(i) + "o";
-    //             console.log(newPhrase);
-    //         }
-    //         else {
-    //             for (var k=0; k<vowels.length; k++) {
-    //                 if (phrase.charAt(i) === vowels[k]) {
-    //                     newPhrase = newPhrase + phrase.charAt(i);
-    //                 }
-    //             }
-    //         }
-
-    //     }
-    // }
-    // return newPhrase;
+    if (typeof phrase !== "string" || phrase === "") {
+        throw "Invalid Input";
+    }    
+    var string = phrase.toLowerCase();
+    var vowels = ["a", "e", "i", "o", "u", " "];
+    var rovString = "";
+    var current;
+    for (i = 0; i < string.length; i++) {
+        current = string.charAt(i); 
+        if (vowels.indexOf(current) !== -1)
+            rovString = rovString + current;
+        else 
+            rovString = rovString + current + "o" + current;
+      }
+    return rovString;
 }
-// console.log(rovarspraket("zzez"));
+console.log(rovarspraket("hello"));
 
 // ---------------------
 // Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
@@ -110,7 +101,7 @@ function sum(array){
 // console.log(sum([1,2,3,4]));
 
 function multiply(array){
-    if (!Array.isArray(array)) {
+    if (!Array.isArray(array) || array.indexOf(undefined) != -1) {
         throw "Invalid Input";
     }
     "use strict";
